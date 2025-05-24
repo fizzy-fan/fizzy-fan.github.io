@@ -1,0 +1,260 @@
+
+
+/* ---------------------------
+   Modern Font + Typography Reset
+   Inspired by Stantec's visual style
+---------------------------- */
+
+/* ---------------------------------------
+   Typography Reset & Modern Styling
+---------------------------------------- */
+
+/* ✅ Serif font for page titles and headings */
+h1, h2, h3, h4, h5, h6,
+.page__title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  color: #111;
+  line-height: 1.3;
+  letter-spacing: -0.3px;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+/* 🎯 Refined font sizing for hierarchy */
+h1 { font-size: 2.25rem; }
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+h5 { font-size: 1rem; }
+h6 { font-size: 0.9rem; }
+
+/* ✅ Base body font: Inter, slightly smaller for modern look */
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  color: #222;
+  line-height: 1.6;
+  font-weight: 400;
+}
+blockquote {
+  font-style: italic;
+  font-size: 0.9rem !important;
+  font-weight: 400;
+  color: inherit;
+  line-height: inherit;
+  margin: 1.5em 0;
+  padding-left: 1.25em;
+  border-left: 3px solid #ddd;
+}
+
+
+/* Apply body font to all main content, without affecting sidebar */
+.page__content,
+.page__content p,
+.page__content li,
+.page__content ul,
+.page__content ol,
+.page__content blockquote {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  color: #222;
+  line-height: 1.6;
+}
+
+/* 🧱 Sidebar: maintain inherited style */
+.sidebar {
+  font-size: inherit;
+}
+.sidebar * {
+  font-size: 1rem;
+}
+.author__meta strong {
+  font-weight: 700;
+  font-size: inherit; /* 👈 ensures it matches surrounding text */
+}
+.author__meta {
+  font-size: 0.8rem !important;
+}
+.author__tagline {
+  font-size: 0.8rem !important;
+}
+
+
+
+/* Top Masthead Layout */
+.masthead {
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  padding: 1em 2em;
+}
+
+.masthead__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.masthead__brand a {
+  font-size: 1.4em;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+
+/* Nav Bar */
+.masthead__nav {
+  display: flex;
+}
+
+.masthead__menu {
+  list-style: none;
+  display: flex;
+  gap: 1.5em;
+  margin: 0;
+  padding: 0;
+}
+
+.masthead__menu-item {
+  position: relative;
+}
+
+.masthead__menu-link {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  padding: 0.5em;
+}
+
+/* Dropdown */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: calc(100% + 0.3rem); // ⬅️ pushes dropdown down slightly
+  left: 0;
+  background-color: #fff;
+  min-width: 200px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-content li {
+  width: 100%;
+}
+
+.dropdown-link {
+  display: block;
+  padding: 0.6em 1em;
+  text-decoration: none;
+  color: #333;
+  white-space: nowrap;
+}
+
+.dropdown-link:hover {
+  background-color: #f0f0f0;
+}
+
+.masthead__menu-item.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+
+
+.theme-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.theme-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  width: 220px;
+  height: 100%; /* allow it to grow with min-height */
+  min-height: 320px;  /* or tweak to fit your tallest card */
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-sizing: border-box;
+  transition: transform 0.2s ease;
+}
+
+.theme-card img {
+  width: 160px;     // previously 120px
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  flex-shrink: 0;
+}
+
+.theme-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex: 1;
+}
+
+/* RESPONSIVE BEHAVIOR: Stack vertically and align text right of image */
+@media (max-width: 768px) {
+  .theme-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem; // controls spacing between cards
+  margin-top: 1.5rem;
+  }
+
+  .theme-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 220px;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+  }
+
+  .theme-card img {
+    margin: 0 1rem 0 0;
+    width: 80px;
+    height: 80px;
+  }
+
+  .theme-text {
+    flex: 1;
+  }
+
+  .theme-text p {
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+  }
+}
+
+.theme-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem; // ✅ apply this globally for desktop
+  margin-top: 1.5rem;
+}
+
+.theme-card-link,
+.theme-card-link * {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+
+
