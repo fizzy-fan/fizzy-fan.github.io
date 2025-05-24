@@ -1,23 +1,36 @@
-{% include base_path %}
+{% assign navigation = site.data.navigation.main %}
 
-<div class="masthead">
-  <div class="masthead__inner-wrap">
-    <div class="masthead__menu">
-      <nav id="site-nav" class="greedy-nav">
-        <button><div class="navicon"></div></button>
-        <ul class="visible-links">
-          <li class="masthead__menu-item masthead__menu-item--lg"><a href="{{ base_path }}/">{{ site.title }}</a></li>
-          {% for link in site.data.navigation.main %}
-            {% if link.url contains 'http' %}
-              {% assign domain = '' %}
-              {% else %}
-              {% assign domain = base_path %}
-            {% endif %}
-            <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}">{{ link.title }}</a></li>
-          {% endfor %}
-        </ul>
-        <ul class="hidden-links hidden"></ul>
-      </nav>
+<header class="masthead">
+  <div class="masthead__inner">
+    <div class="masthead__brand">
+      <a href="{{ '/' | relative_url }}">{{ site.title }}</a>
     </div>
+
+    <nav class="masthead__nav">
+      <ul class="masthead__menu">
+        {% for nav in navigation %}
+          <li class="masthead__menu-item{% if nav.title == 'Research' %} dropdown{% endif %}">
+            <a href="{{ nav.url | relative_url }}" class="masthead__menu-link">{{ nav.title }}</a>
+
+            {% if nav.title == 'Research' %}
+              {% assign research_pages_temp = site.pages | where_exp: "p", "p.url contains '/research/'" %}
+              {% assign research_pages = research_pages_temp | where_exp: "p", "p.url != nav.url" %}
+              <ul class="dropdown-content">
+                <!-- Overview tab first -->
+                <li>
+                  <a href="{{ nav.url | relative_url }}" class="dropdown-link"><strong>Overview</strong></a>
+                </li>
+                <!-- Then dynamically list subpages -->
+                {% for page in research_pages %}
+                  <li>
+                    <a href="{{ page.url | relative_url }}" class="dropdown-link">{{ page.title }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
   </div>
-</div>
+</header>

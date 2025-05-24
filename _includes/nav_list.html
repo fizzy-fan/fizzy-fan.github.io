@@ -1,0 +1,23 @@
+{% assign navigation = site.data.navigation[include.nav] %}
+
+<nav class="nav__list">
+  <ul>
+    {% for nav in navigation %}
+      <li class="masthead__menu-item{% if nav.children %} dropdown{% endif %}">
+        {% if nav.url %}
+          <a href="{{ nav.url }}" class="nav__link">{{ nav.title }}</a>
+        {% else %}
+          <span class="nav__link">{{ nav.title }}</span>
+        {% endif %}
+
+        {% if nav.children %}
+          <ul class="dropdown-content">
+            {% for child in nav.children %}
+              <li><a href="{{ child.url }}" class="nav__dropdown-link">{{ child.title }}</a></li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</nav>
