@@ -257,4 +257,28 @@ blockquote {
 }
 
 
+/* Collaborator Gallery */
 
+.collaborator-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem 2rem; /* vertical / horizontal gap */
+  justify-items: center;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.collaborator-gallery img {
+  max-height: 80px;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* Sidebar Image */
+
+img.author__avatar {
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  background: none;
+}

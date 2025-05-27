@@ -21,7 +21,7 @@ repository               : "fizzy-fan/fizzy-fan.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "THRIVIN.png"
+  avatar           : "THR_logo.jpg"
   name             : "Transportation Health and Resilience In Vulnerable and Interdependent Networks (THRIVIN')"
   pronouns         : "Cyber-physical systems for health equity and infrastructure resilience in multimodal transportation networks"
   bio              : |
