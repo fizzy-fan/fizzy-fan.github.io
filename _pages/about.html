@@ -1,4 +1,5 @@
 ---
+layout: archive
 permalink: /
 title: "About"
 author_profile: true
@@ -9,22 +10,70 @@ redirect_from:
 
 <link rel="stylesheet" href="/assets/css/research.css">
 
-<div class="about-section" style="max-width: 900px; margin: auto;">
+<div class="about-section">
 
   <p>
     The <strong>THRIVIN’ Group</strong> is an interdisciplinary research lab 
-    based at the University of Alberta, 
-    housed within the Department of Civil and Environmental Engineering. 
+    based at the University of Alberta's Department of Civil and Environmental Engineering. 
     We focus on advancing the science of transportation resilience and 
-    public health under climate stress, combining engineering, data science, 
-    and environmental health. 
+    public health under climate stress. 
   </p>
 
-  <p>
-    By bridging civil engineering, climate resilience, and data science, the THRIVIN’ Group is committed to building tools and knowledge that help communities adapt to a rapidly changing world.
-  </p>
+</div>
+
+<h2> </h2>
+<h4>Research Themes</h4>
+
+{% assign research_temp = site.pages | where_exp: "p", "p.url contains '/research/'" %}
+{% assign research_pages = research_temp | where_exp: "p", "p.url != '/research/'" %}
+
+<div class="theme-gallery">
+  {% for page in research_pages %}
+    <a href="{{ page.url | relative_url }}" class="theme-card-link">
+      <div class="theme-card">
+        <img src="{{ page.image | default: '/images/default.jpg' | relative_url }}" alt="{{ page.title }}">
+        <div class="theme-text">
+          <h5>{{ page.title }}</h5>
+          <p>{{ page.description | default: 'Learn more about this research theme.' }}</p>
+        </div>
+      </div>
+    </a>
+  {% endfor %}
 </div>
 
 
 
+<div class="section">
+  <h5> 🎓 Graduate Student Opportunity (Spring/Fall 2026) </h5>
+  <p>
+    I am currently recruiting one MSc/PhD student for the Spring or Fall 2026 intake. 
+    If you're interested in contributing to our work on transportation network, climate resilience, or public health, 
+    please feel free to <a href="mailto:hfan5@ualberta.ca">contact me</a> directly.
+  </p>
+</div>
 
+<div class="section">
+  <h5> 🤝 Mentorship </h5>
+  <p>
+    I dedicate one hour each week to connect with students who would like support navigating academic or career challenges. 
+    Students, especially those who've experienced disability or unexpected setbacks in their career, are welcome to 
+    use the scheduler below to chat with me.
+  </p>
+  <!-- Google Calendar Appointment Scheduling begin -->
+  <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+  <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+  <script>
+  (function() {
+    var target = document.currentScript;
+    window.addEventListener('load', function() {
+      calendar.schedulingButton.load({
+        url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ3Sygak3qqjNUGS59ZgkWREXEwLfvg9JioDOw-gvx4My_iT9HFrY7mdFsxrL_CjQsY9em722j6U?gv=true',
+        color: '#039BE5',
+        label: 'Book an appointment',
+        target,
+      });
+    });
+  })();
+  </script>
+  <!-- end Google Calendar Appointment Scheduling -->
+</div>
