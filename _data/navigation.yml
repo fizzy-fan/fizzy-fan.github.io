@@ -17,6 +17,9 @@ main:
       - title: "CPS & Infrastructure"
         url: /research/cps/
 
+  - title: "Connect"
+    url: /connect/
+
   - title: "Join Us"
     url: /join-us/
 
